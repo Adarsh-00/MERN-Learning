@@ -1,0 +1,26 @@
+.card {
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    flex-direction: column;
+    width: 25vh;
+    gap: 2px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+img{
+    height: 12vh;
+    width: 12vh;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.detail {
+    border: 1px solid white;
+    margin: 8px;
+    padding: 8px;
+    width: 21vh;
+    border-radius: 5px;
+    text-align: center;
+}
