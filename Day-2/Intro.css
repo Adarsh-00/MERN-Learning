@@ -1,0 +1,32 @@
+.box{
+    background-color: #ff7511;
+    height: 100px;
+    width: 100px;
+}
+
+/* id selector (#) */
+#r{
+    color: red;
+}
+
+#b{
+    color: blue;
+}
+#g{
+    color: green;
+}
+
+/* class selector (.) */
+.icon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* tag selector (tagname)*/
+a{
+    border: 2px solid #279fa1;
+    padding: 2px;
+}
