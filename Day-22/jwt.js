@@ -7,6 +7,19 @@ app.get('/', (req, res) => {
     res.send("Demo JWT");
 });
 
+app.post('/posts', verifyToken, (req, res) => {
+    jwt.verify(req.token, 'secret', (err, authData) => {
+        if(err) {
+            res.status(403);
+        }
+        else {
+            res.json({
+                message: "Post created ..."
+            })
+        }
+    })
+})
+
 app.post('/login', (req, res)=> {
     const user = {
         id: 1,
@@ -17,7 +30,19 @@ app.post('/login', (req, res)=> {
     jwt.sign({user: user}, 'secret', (err, token) => {
         res.send(token);
     })
-})
+});
+
+function verifyToken(req, res, next) {
+    const bearerHeader = req.headers['authorization'];
+    if(typeof bearerHeader !== 'undefined'){
+        bearerToken = bearerHeader.split(" ")[1];
+        req.token = bearerToken;
+        next();
+    }
+    else {
+        res.status(403);
+    }
+}
 
 app.listen(8080, ()=>{ console.log("Listing at port 8080") });
 
